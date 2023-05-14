@@ -24,7 +24,7 @@ const [content, setContent] = useState("")
 
   useEffect(() => {
  
-const storage = localStorage.getItem("token")
+const storage = window.localStorage.getItem("token")
     var config = {
         method: 'get',
         url: 'https://unicode-lp.onrender.com/news',
@@ -49,7 +49,10 @@ const storage = localStorage.getItem("token")
   return (
  
     <div className='main_container'>
-         <h1 className='main_head'>NEWSAPP</h1>
+     
+        <marquee scrollamount="15" style={{ color: 'white', fontSize: '5em',  fontFamily: "'Times New Roman', serif", fontWeight:'bold' }}>The Guardian</marquee>
+        <br/>
+        <br/>
       <div className='btn_container'>
 
       </div>
@@ -59,7 +62,7 @@ const storage = localStorage.getItem("token")
         {
           data.map((value, index) => (
             <Grid item xs={1} sm={1} md={1} key={index} >
-                    <Item>   <Card sx={{ maxWidth: 500 }} className="news_card">
+                    <Item  sx={{backgroundColor: "black"}}>   <Card sx={{ maxWidth: 500, backgroundColor: "#3D454D" }} className="news_card">
                       <CardMedia
                         component="img"
                         alt="news pic"
@@ -67,10 +70,10 @@ const storage = localStorage.getItem("token")
                         image={value.urlToImage}
                       />
                       <CardContent>
-                        <Typography gutterBottom variant="h6" component="div">
+                        <Typography color="white"  fontFamily="'Times New Roman', serif" gutterBottom variant="h6" component="div">
                           {value.title}
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
+                        <Typography color="white" sx={{ fontWeight: 'light' }}  variant="body2">
                           {value.description}
                         </Typography>
                       </CardContent>
@@ -78,7 +81,7 @@ const storage = localStorage.getItem("token")
                        
                       {/* <a  href={value.url} className="learn">Read More...</a> */}
 <div key={index} >
-                    <Link to={`/FetchNewsContent/${index}`}><Button size="small" >Learn More</Button></Link>
+                    <Link to={`/FetchNewsContent/${index}`}><Button  size="small" sx={{color: "#DBFF00"}}>...learn more</Button></Link>
                     </div>
               
                       </CardActions>

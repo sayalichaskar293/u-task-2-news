@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Button, CssBaseline, Box, Container, Card, CardActions, CardContent, CardMedia, Typography, Paper, Grid, styled, TextField } from "@mui/material"
 import '../App.css';
 import axios from 'axios'
 import {useParams} from 'react-router-dom'
@@ -37,8 +36,9 @@ const {index} = useParams()
 
   return(
     <>
-    <div className='content_div'>
-      <div className='logobar'>NEWSAPP</div>
+    <div className='main_container'>
+    <marquee scrollamount="15" style={{ color: 'white', fontSize: '5em',  fontFamily: "'Times New Roman', serif", fontWeight:'bold' }}>The Guardian</marquee>
+       
    <div className='news_title'>{data.title}</div> 
    <div className='news_author'>{data.author}</div> 
     <div className='news_date'>{data.publishedAt}</div>

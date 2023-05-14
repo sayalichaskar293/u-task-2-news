@@ -3,9 +3,10 @@ import React, {useState, useEffect} from 'react'
 import {Button, CssBaseline,  Box, Container, Card, CardActions, CardContent, Typography, Paper, Grid, styled, TextField} from "@mui/material"
 import GoogleIcon from '@mui/icons-material/Google';
 import App from '../App.css';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import axios from 'axios'
 import qs from 'qs'
+import Newspaper from '../images/newspaper.jpg'
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -66,13 +67,16 @@ const handleSignUp=(e)=>{
 
 
   return (
-    <div className="App">
+    <div className="App" style={{backgroundColor: "black"}}>
  
 <CssBaseline >
+ 
       <Container fixed maxWidth='xl'>
         
         
-      <Box sx={{ bgcolor: '#002E94', height: '150vh' }} >
+      <Box sx={{ backgroundImage: 'url("https://images.unsplash.com/photo-1588773846628-13fce0a32105?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80")',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover', height: '110vh' }} >
       <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         
@@ -80,24 +84,22 @@ const handleSignUp=(e)=>{
   direction="column"
   justifyContent="center"
   alignItems="center">
-        <br/>
+  
        
         
        
         
-          <Item> <Card sx={{ minWidth: 500 }} >
+          <Item sx={{backgroundColor: "black"}}> <Card sx={{backgroundColor: 'black', borderWidth: "0" , minWidth: 500 }} >
       <CardContent>
      
-        <Typography variant="h3" component="div">
-          NewsApp
+        <Typography component="div" fontWeight= 'bold' color="white" fontFamily="'Times New Roman', serif" variant="h2">
+          The<br/> Guardian
         </Typography>
-        <br/>
+     
        
         
-        <Typography variant="h6" sx={{ mb: 2.5 }} color="text.secondary">
-          Welcome to newsapp
-        </Typography>
-        <br/>
+       
+    
         <Box
       component="form"
       sx={{
@@ -109,35 +111,35 @@ const handleSignUp=(e)=>{
      
       <div>
       
-     <p><label classname="labels" for="username">Username</label></p> 
+     <p><label classname="labels" style={{color: "white"}} for="username">Username</label></p> 
      <p className='error'></p>
-       <input className='textfield' type="text" name="name" placeholder='Username' value={name} onChange={(e)=> setName(e.target.value)}></input>
+       <input autoFocus className='textfield' style={{backgroundColor: "black", color: "white"}} type="text" name="name" placeholder='Username' value={name} onChange={(e)=> setName(e.target.value)}></input>
        </div>
       <br/>
        <div>
        
-     <p><label classname="labels" for="email">Email Id</label></p> 
+     <p><label style={{color: "white"}} classname="labels" for="email">Email Id</label></p> 
      <p className='error'></p>
-       <input className='textfield' type="text" name="email" placeholder='Email id' value={email} onChange={(e)=> setEmail(e.target.value)}></input>
+       <input  className='textfield' style={{backgroundColor: "black", color: "white"}} type="text" name="email" placeholder='Email id' value={email} onChange={(e)=> setEmail(e.target.value)}></input>
         </div>
         <br/>
        
         <div>
        
-        <p><label classname="labels" for="username">Password</label></p>
-        <input className='textfield' type="password" name="password" placeholder='Password' value={pwd} onChange={(e)=> setPwd(e.target.value)}></input>
+        <p><label style={{color: "white"}} classname="labels" for="username">Password</label></p>
+        <input className='textfield' style={{backgroundColor: "black", color: "white"}} type="password" name="password" placeholder='Password' value={pwd} onChange={(e)=> setPwd(e.target.value)}></input>
       </div>
       <br/>
 
 <div>
-      <p><label classname="labels" for="username">First Name</label></p>
-        <input className='textfield' type="text" name="firstname" placeholder='First Name' value={fname} onChange={(e)=> setFName(e.target.value)}></input>
+      <p><label classname="labels" style={{color: "white"}} for="username">First Name</label></p>
+        <input className='textfield' style={{backgroundColor: "black", color: "white"}} type="text" name="firstname" placeholder='First Name' value={fname} onChange={(e)=> setFName(e.target.value)}></input>
       </div>
       <br/>
 
 <div>
-      <p><label classname="labels" for="username">Last Name</label></p>
-        <input className='textfield' type="text" name="lastname" placeholder='Last Name' value={lname} onChange={(e)=> setLName(e.target.value)}></input>
+      <p><label classname="labels" style={{color: "white"}} for="username">Last Name</label></p>
+        <input className='textfield' style={{backgroundColor: "black", color: "white"}} type="text" name="lastname" placeholder='Last Name' value={lname} onChange={(e)=> setLName(e.target.value)}></input>
       </div>
       
     </Box>
@@ -146,7 +148,8 @@ const handleSignUp=(e)=>{
         <br/>
        
        
-        <Button variant="contained" color='secondary' onClick={handleSignUp} >Sign up</Button>
+        <Button variant="contained" color='success' onClick={handleSignUp} >Sign up</Button><br/><br/>
+        <Link to={"/loginpage"}  >  <Button variant="outlined" color='success' >Already registered? Log In</Button></Link>   
    
     
       

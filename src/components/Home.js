@@ -8,11 +8,18 @@ import '../App.css';
  return (
    <>
    <nav className='Navbar'>
+
 <Link to='/Home' className='links'>Home</Link>
 
 <Link to='/FetchNewsApi' className='links'>Latest News</Link>
    </nav>
-   <div className='welc'><h1>Welcome to NewsApp, {user?.name}</h1></div>
+   <div className='home_container'>
+<div className='layer'>
+<div className='welc '><h1>Welcome to The Guardian,<br/> {user?.name}</h1></div>
+</div>
+  
+   
+   </div>
    </>
   )
 }

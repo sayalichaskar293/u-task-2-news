@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { Button, CssBaseline, Box, Container, Card, CardActions, CardContent, Typography, Paper, Grid, styled, TextField } from "@mui/material"
 import '../App.css';
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import qs from 'qs'
 
@@ -47,9 +47,9 @@ const handleLogIn= (e)=>{
       .then(function (response) {
         console.log(JSON.stringify(response.data.token));
         
-        localStorage.setItem("username", name)
-        localStorage.setItem("password", pwd)
-        localStorage.setItem("token", response.data.token)
+        window.localStorage.setItem("username", name)
+        window.localStorage.setItem("password", pwd)
+        window.localStorage.setItem("token", response.data.token)
 
         
       })
@@ -68,13 +68,16 @@ const handleLogIn= (e)=>{
     }      
     
     return (
-        <div className="App">
+        <div className="App" style={{backgroundColor: "black"}}>
 
             <CssBaseline >
+               
                 <Container fixed maxWidth='xl'>
 
 
-                    <Box sx={{ bgcolor: '#002E94', height: '100vh' }} >
+                    <Box sx={{ backgroundImage: 'url("https://images.unsplash.com/photo-1588773846628-13fce0a32105?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80")',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover', height: '102vh' }} >
                         <Box sx={{ flexGrow: 1 }}>
                             <Grid container spacing={2}>
 
@@ -84,19 +87,19 @@ const handleLogIn= (e)=>{
                                     alignItems="center">
                                     <br />
 
-
-                                    <Item> <Card sx={{ minWidth: 500 }} >
+                                    <br/>
+                <br/>
+                <br/>
+                <br/>
+                                    <Item sx={{backgroundColor: "black"}}> <Card sx={{backgroundColor: 'black', borderWidth: "0" , minWidth: 500 }} >
                                         <CardContent>
 
-                                            <Typography variant="h3" component="div">
-                                                NewsApp
-                                            </Typography>
-                                            <br />
+                                        <Typography component="div" fontWeight= 'bold' color="white" fontFamily="'Times New Roman', serif" variant="h2">
+          The<br/> Guardian
+        </Typography>
 
 
-                                            <Typography variant="h6" sx={{ mb: 2.5 }} color="text.secondary">
-                                                Welcome to newsapp
-                                            </Typography>
+                                           
                                             <br />
                                             <Box
                                                 component="form"
@@ -109,27 +112,27 @@ const handleLogIn= (e)=>{
 
                                                 <div>
 
-                                                    <p><label className="labels" for="username">Username</label></p>
+                                                    <p><label className="labels" style={{color: "white"}} for="username">Username</label></p>
                                                     {/* <p className='error'>{formErrors.username}</p>*/}
-                                                    <input className='textfield' type="text" name="name" placeholder='username' value={name} onChange={(e)=> setName(e.target.value)}></input>
+                                                    <input autoFocus className='textfield' style={{backgroundColor: "black", color: "white"}} type="text" name="name" placeholder='username' value={name} onChange={(e)=> setName(e.target.value)}></input>
                                                     <br />
                                                    
                                                     
 
 
 
-                                                    <p><label className="labels" for="username">Password</label></p>
+                                                    <p><label className="labels" style={{color: "white"}} for="username">Password</label></p>
                                                     {/* <p className='error'>{formErrors.password}</p> */}
-                                                    <input className='textfield' type="password" name="password" placeholder='Password' value={pwd} onChange={(e)=> setPwd(e.target.value)}></input>  
+                                                    <input className='textfield' style={{backgroundColor: "black", color: "white"}} type="password" name="password" placeholder='password' value={pwd} onChange={(e)=> setPwd(e.target.value)}></input>  
                                                 </div>
                                             </Box>
 
-
+<br/>
                                             <br />
-                                            <Button variant="contained" color='secondary' type='submit' onClick={handleLogIn}>LogIn</Button>
+                                            <Button variant="contained" color='success' type='submit' onClick={handleLogIn}>LogIn</Button>
                                             <br />
                                             <br />
-                                            <Button variant="outlined" color='primary' >Haven't registered? Sign Up</Button>
+                                  <Link to={"/Signuppage"}  >  <Button variant="outlined" color='success' >Haven't registered? Sign Up</Button></Link>   
                                             <br />
                                             <br />
 
